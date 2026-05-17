@@ -876,9 +876,81 @@
     </div>
   </section>
 
+
   <footer>
-    Made with love for DEVA & GANGA · Wedding Celebration 2026
+    <div class="footer-content">
+
+      <div class="footer-text">
+        Made with love for DEVA & GANGA · Wedding Celebration 2026
+      </div>
+
+      <div class="view-counter">
+        👁 <span id="viewCount">0</span> Views
+      </div>
+
+    </div>
   </footer>
+
+  <style>
+
+  .footer-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+
+  .footer-text{
+    color:#ead7c5;
+  }
+
+  .view-counter{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(243,213,181,.12),
+        rgba(212,163,115,.18)
+      );
+
+    border:1px solid rgba(243,213,181,.18);
+
+    color:#f3d5b5;
+
+    font-weight:800;
+    font-size:13px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+      0 8px 22px rgba(0,0,0,.18),
+      0 0 18px rgba(243,213,181,.08);
+  }
+
+  .view-counter span{
+    color:#fff;
+    font-size:14px;
+  }
+
+  @media(max-width:560px){
+
+    .footer-content{
+      flex-direction:column;
+      gap:12px;
+    }
+
+  }
+
+  </style>
+
 <script>
     function openPhoto(element) {
       const modal = document.getElementById('photoModal');
@@ -893,5 +965,22 @@
       document.getElementById('photoModal').classList.remove('active');
     }
   </script>
+
+  <script>
+
+    let views = localStorage.getItem("wedding_views");
+
+    if(views === null){
+        views = 0;
+    }
+
+    views++;
+
+    localStorage.setItem("wedding_views", views);
+
+    document.getElementById("viewCount").innerText = views;
+
+  </script>
+
 </body>
 </html>
